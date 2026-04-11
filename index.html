@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>米哥有限公司｜台灣米果代工專家</title>
+  <meta name="description" content="米哥有限公司 — 專業米果、米香代工製造。HACCP認證工廠，提供客製口味、造型、包裝一站式 OEM 服務。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700;900&family=Noto+Sans+TC:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --bg:        #FAF6F0;
+      --cream:     #F4EDE0;
+      --cream-2:   #EDE0CC;
+      --white:     #FFFFFF;
+      --gold:      #C8962A;
+      --gold-lt:   #E0AA44;
+      --amber:     #E09820;
+      --rust:      #C04E1A;
+      --brown:     #2A1F12;
+      --brown-mid: rgba(42,31,18,0.60);
+      --brown-dim: rgba(42,31,18,0.30);
+      --brown-faint:rgba(42,31,18,0.08);
+      --border:    rgba(42,31,18,0.10);
+      --border-gold:rgba(200,150,42,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--brown); overflow-x: hidden; }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ─── UTILITIES ─── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before {
+      content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0;
+    }
+    .section-h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 34px; font-weight: 700; color: var(--brown); line-height: 1.35;
+    }
+    .section-h2 em { font-style: normal; color: var(--rust); }
+    .section-sub {
+      font-size: 14px; color: var(--brown-mid); line-height: 1.85; font-weight: 300;
+      margin-top: 12px;
+    }
+    .tag {
+      display: inline-block; font-size: 11px; letter-spacing: 1px; padding: 4px 12px;
+      border-radius: 2px; font-family: 'DM Sans', sans-serif;
+    }
+    .tag-gold { background: rgba(200,150,42,0.12); border: 1px solid var(--border-gold); color: var(--gold); }
+    .tag-rust { background: rgba(192,78,26,0.10); border: 1px solid rgba(192,78,26,0.22); color: var(--rust); }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(250,246,240,0.94); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 66px;
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(42,31,18,0.08); }
+    .nav-logo { display: flex; align-items: baseline; gap: 8px; text-decoration: none; }
+    .nav-logo-zh {
+      font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700;
+      color: var(--brown); letter-spacing: 2px;
+    }
+    .nav-logo-en {
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 300;
+      color: var(--gold); letter-spacing: 3px;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 13px; color: var(--brown-mid); text-decoration: none;
+      letter-spacing: 0.5px; transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--brown); }
+    .nav-cta {
+      background: var(--brown); color: var(--cream);
+      border: none; padding: 10px 24px;
+      font-size: 12px; letter-spacing: 1px; font-weight: 500;
+      cursor: pointer; font-family: 'Noto Sans TC', sans-serif;
+      transition: background 0.25s;
+      text-decoration: none; display: inline-block;
+    }
+    .nav-cta:hover { background: var(--rust); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { width: 22px; height: 2px; background: var(--brown); border-radius: 2px; transition: all 0.3s; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh; padding-top: 66px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      background: var(--bg);
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 60px 80px 40px;
+    }
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif; font-size: 11px;
+      letter-spacing: 5px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+    .hero-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 52px; font-weight: 900; line-height: 1.2;
+      color: var(--brown); margin-bottom: 6px;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.35s;
+    }
+    .hero-title-en {
+      font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 300;
+      letter-spacing: 6px; color: var(--brown-dim);
+      margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.45s;
+    }
+    .hero-desc {
+      font-size: 15px; color: var(--brown-mid); line-height: 1.95;
+      border-left: 3px solid var(--gold); padding-left: 16px;
+      margin-bottom: 40px; font-weight: 300;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.55s;
+    }
+    .hero-desc strong { color: var(--brown); font-weight: 500; }
+    .hero-tags {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.65s;
+    }
+    .hero-btns {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.75s;
+    }
+    .btn-primary {
+      background: var(--brown); color: var(--cream);
+      border: none; padding: 14px 36px;
+      font-size: 13px; letter-spacing: 1.5px; font-weight: 500;
+      cursor: pointer; font-family: 'Noto Sans TC', sans-serif;
+      transition: background 0.25s; text-decoration: none; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--rust); }
+    .btn-outline {
+      background: transparent; color: var(--brown);
+      border: 1px solid var(--border); padding: 14px 36px;
+      font-size: 13px; letter-spacing: 1px;
+      cursor: pointer; font-family: 'Noto Sans TC', sans-serif;
+      transition: all 0.25s; text-decoration: none; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-right {
+      background: var(--cream);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      opacity: 0; animation: fadeIn 1s ease forwards 0.8s;
+    }
+    .hero-right::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 70% 30%, rgba(200,150,42,0.12), transparent 65%),
+        radial-gradient(ellipse 50% 50% at 30% 70%, rgba(192,78,26,0.08), transparent 60%);
+    }
+    .hero-stat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); width: 100%; max-width: 380px;
+      position: relative; z-index: 2;
+    }
+    .hero-stat {
+      background: var(--cream); padding: 36px 32px;
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .hero-stat-num {
+      font-family: 'DM Sans', sans-serif; font-size: 42px; font-weight: 300;
+      color: var(--brown); line-height: 1; margin-bottom: 6px;
+    }
+    .hero-stat-num span { font-size: 20px; color: var(--gold); }
+    .hero-stat-label { font-size: 12px; color: var(--brown-mid); letter-spacing: 0.5px; }
+    .hero-badge {
+      margin-top: 24px; position: relative; z-index: 2;
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+      padding: 0 24px;
+    }
+    .hero-badge-item {
+      background: var(--white); border: 1px solid var(--border);
+      padding: 6px 14px; font-size: 11px; letter-spacing: 1px;
+      color: var(--brown-mid); font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ─── MARQUEE STRIP ─── */
+    .marquee-wrap {
+      background: var(--brown); overflow: hidden;
+      padding: 14px 0; border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .marquee-track {
+      display: flex; gap: 0; white-space: nowrap;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-item {
+      display: inline-flex; align-items: center; gap: 16px;
+      padding: 0 32px;
+      font-family: 'DM Sans', sans-serif; font-size: 12px;
+      letter-spacing: 2px; text-transform: uppercase; color: rgba(244,237,224,0.5);
+    }
+    .marquee-item::after { content: '·'; color: var(--gold); }
+
+    /* ─── ABOUT STRIP ─── */
+    .about-strip { background: var(--white); padding: 64px 0; border-bottom: 1px solid var(--border); }
+    .about-strip .container { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-text .section-h2 { margin-bottom: 18px; }
+    .about-features { display: flex; flex-direction: column; gap: 16px; }
+    .about-feat {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 18px; background: var(--bg); border: 1px solid var(--border);
+    }
+    .about-feat-icon {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .about-feat-icon.gold { background: rgba(200,150,42,0.15); }
+    .about-feat-icon.rust { background: rgba(192,78,26,0.12); }
+    .about-feat-icon.brown { background: rgba(42,31,18,0.08); }
+    .about-feat-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+    .about-feat-desc { font-size: 12px; color: var(--brown-mid); line-height: 1.7; font-weight: 300; }
+
+    /* ─── PRODUCTS ─── */
+    .products { padding: 96px 0; background: var(--bg); }
+    .products-header { margin-bottom: 56px; }
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .prod-card {
+      background: var(--white); padding: 40px 32px;
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
+    }
+    .prod-card:hover { background: var(--cream); }
+    .prod-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      transform: scaleX(0); transform-origin: left; transition: transform 0.35s;
+    }
+    .prod-card:nth-child(1)::before { background: var(--gold); }
+    .prod-card:nth-child(2)::before { background: var(--rust); }
+    .prod-card:nth-child(3)::before { background: var(--amber); }
+    .prod-card:nth-child(4)::before { background: var(--rust); }
+    .prod-card:nth-child(5)::before { background: var(--gold); }
+    .prod-card:nth-child(6)::before { background: var(--amber); }
+    .prod-card:hover::before { transform: scaleX(1); }
+    .prod-num {
+      font-family: 'DM Sans', sans-serif; font-size: 52px; font-weight: 300;
+      color: var(--brown-faint); line-height: 1; margin-bottom: 20px;
+    }
+    .prod-icon { font-size: 28px; margin-bottom: 14px; }
+    .prod-name {
+      font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700;
+      color: var(--brown); margin-bottom: 8px;
+    }
+    .prod-en {
+      font-family: 'DM Sans', sans-serif; font-size: 11px;
+      color: var(--brown-dim); letter-spacing: 2px; margin-bottom: 14px;
+    }
+    .prod-desc {
+      font-size: 13px; color: var(--brown-mid); line-height: 1.85; font-weight: 300;
+      margin-bottom: 20px;
+    }
+    .prod-specs { display: flex; flex-direction: column; gap: 6px; }
+    .prod-spec {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: var(--brown-mid);
+    }
+    .prod-spec::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    /* ─── STRENGTH ─── */
+    .strength { padding: 96px 0; background: var(--cream); }
+    .strength-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .strength-left .section-h2 { margin-bottom: 20px; }
+    .cert-list { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    .cert-item {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--white); border: 1px solid var(--border);
+      padding: 16px 20px;
+    }
+    .cert-badge {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(200,150,42,0.12); border: 1px solid var(--border-gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .cert-name { font-size: 13px; font-weight: 500; color: var(--brown); }
+    .cert-desc { font-size: 11px; color: var(--brown-mid); margin-top: 2px; }
+    .strength-right { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+    .str-stat {
+      background: var(--white); padding: 36px 28px;
+      display: flex; flex-direction: column;
+    }
+    .str-stat-num {
+      font-family: 'DM Sans', sans-serif; font-size: 44px; font-weight: 300;
+      color: var(--brown); line-height: 1;
+    }
+    .str-stat-unit { font-size: 18px; color: var(--gold); }
+    .str-stat-label { font-size: 12px; color: var(--brown-mid); margin-top: 8px; letter-spacing: 0.5px; }
+    .str-stat-sub { font-size: 11px; color: var(--brown-dim); margin-top: 4px; font-weight: 300; }
+
+    /* ─── PROCESS ─── */
+    .process { padding: 96px 0; background: var(--white); }
+    .process-header { margin-bottom: 64px; }
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); position: relative; }
+    .process-steps::before {
+      content: ''; position: absolute;
+      top: 28px; left: calc(10% + 14px); right: calc(10% + 14px); height: 1px;
+      background: linear-gradient(90deg, var(--gold), var(--amber), var(--rust));
+      opacity: 0.3;
+    }
+    .step { padding: 0 16px; text-align: center; position: relative; }
+    .step-circle {
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      background: var(--bg);
+      position: relative; z-index: 2;
+      transition: all 0.3s;
+    }
+    .step:nth-child(1) .step-circle { border: 1px solid rgba(200,150,42,0.4); }
+    .step:nth-child(2) .step-circle { border: 1px solid rgba(210,130,32,0.4); }
+    .step:nth-child(3) .step-circle { border: 1px solid rgba(220,105,28,0.4); }
+    .step:nth-child(4) .step-circle { border: 1px solid rgba(210,78,26,0.4); }
+    .step:nth-child(5) .step-circle { border: 1px solid rgba(192,78,26,0.4); }
+    .step:hover .step-circle { background: var(--cream); transform: scale(1.05); }
+    .step-num {
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400;
+      color: var(--gold);
+    }
+    .step-name {
+      font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 600;
+      color: var(--brown); margin-bottom: 8px;
+    }
+    .step-desc { font-size: 12px; color: var(--brown-mid); line-height: 1.75; font-weight: 300; }
+    .process-note {
+      margin-top: 56px; background: var(--cream); border: 1px solid var(--border);
+      padding: 32px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    }
+    .pnote-item { display: flex; gap: 14px; align-items: flex-start; }
+    .pnote-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .pnote-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+    .pnote-desc { font-size: 12px; color: var(--brown-mid); line-height: 1.7; font-weight: 300; }
+
+    /* ─── CUSTOM ─── */
+    .custom { padding: 96px 0; background: var(--bg); }
+    .custom-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .custom-options { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-top: 32px; }
+    .cust-opt {
+      background: var(--white); padding: 24px 22px;
+      transition: background 0.3s;
+    }
+    .cust-opt:hover { background: var(--cream); }
+    .cust-opt-icon { font-size: 22px; margin-bottom: 10px; }
+    .cust-opt-title { font-size: 13px; font-weight: 500; color: var(--brown); margin-bottom: 6px; }
+    .cust-opt-desc { font-size: 12px; color: var(--brown-mid); line-height: 1.7; font-weight: 300; }
+    .custom-right-title {
+      font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700;
+      color: var(--brown); margin-bottom: 20px;
+    }
+    .moq-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .moq-table th {
+      background: var(--brown); color: var(--cream);
+      padding: 12px 16px; text-align: left; font-weight: 400; letter-spacing: 0.5px;
+    }
+    .moq-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--brown-mid); }
+    .moq-table tr:last-child td { border-bottom: none; }
+    .moq-table tr:hover td { background: var(--cream); }
+    .moq-note { font-size: 11px; color: var(--brown-dim); margin-top: 12px; font-weight: 300; }
+
+    /* ─── CONTACT ─── */
+    .contact { padding: 96px 0; background: var(--cream); }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+    .contact-info { }
+    .contact-info .section-h2 { margin-bottom: 20px; }
+    .contact-details { display: flex; flex-direction: column; gap: 16px; margin-top: 36px; }
+    .contact-detail {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px; background: var(--white); border: 1px solid var(--border);
+    }
+    .contact-detail-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .contact-detail-label { font-size: 11px; color: var(--brown-dim); letter-spacing: 1px; margin-bottom: 3px; font-family: 'DM Sans', sans-serif; }
+    .contact-detail-value { font-size: 13px; color: var(--brown); font-weight: 400; }
+
+    /* Form */
+    .contact-form { background: var(--white); border: 1px solid var(--border); padding: 48px; }
+    .form-title {
+      font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700;
+      color: var(--brown); margin-bottom: 6px;
+    }
+    .form-sub { font-size: 13px; color: var(--brown-mid); margin-bottom: 36px; font-weight: 300; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label { font-size: 12px; color: var(--brown-mid); letter-spacing: 0.5px; }
+    .form-label span { color: var(--rust); }
+    .form-input, .form-select, .form-textarea {
+      border: 1px solid var(--border); background: var(--bg);
+      padding: 12px 14px; font-size: 13px; color: var(--brown);
+      font-family: 'Noto Sans TC', sans-serif; outline: none;
+      transition: border-color 0.25s, background 0.25s;
+      appearance: none; -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--gold); background: var(--white);
+    }
+    .form-select { background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23C8962A' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-color: var(--bg); cursor: pointer; }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-checkbox-wrap { display: flex; align-items: flex-start; gap: 10px; grid-column: 1 / -1; }
+    .form-checkbox { width: 16px; height: 16px; border: 1px solid var(--border); appearance: none; cursor: pointer; flex-shrink: 0; margin-top: 1px; position: relative; }
+    .form-checkbox:checked { background: var(--gold); border-color: var(--gold); }
+    .form-checkbox:checked::after { content: '✓'; position: absolute; top: -1px; left: 2px; font-size: 11px; color: white; }
+    .form-checkbox-label { font-size: 12px; color: var(--brown-mid); line-height: 1.6; }
+    .form-submit {
+      grid-column: 1 / -1; margin-top: 8px;
+      background: var(--brown); color: var(--cream);
+      border: none; padding: 16px 40px; font-size: 13px;
+      letter-spacing: 2px; font-weight: 500; cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      transition: background 0.25s; width: 100%;
+    }
+    .form-submit:hover { background: var(--rust); }
+    .form-success {
+      display: none; text-align: center; padding: 48px 24px;
+      font-family: 'Noto Serif TC', serif;
+    }
+    .form-success-icon { font-size: 40px; margin-bottom: 16px; }
+    .form-success-title { font-size: 20px; font-weight: 700; color: var(--brown); margin-bottom: 8px; }
+    .form-success-sub { font-size: 13px; color: var(--brown-mid); font-weight: 300; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--brown); color: var(--cream); padding: 56px 0 32px; }
+    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand-zh { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 4px; }
+    .footer-brand-en { font-family: 'DM Sans', sans-serif; font-size: 12px; letter-spacing: 3px; color: var(--gold); }
+    .footer-tagline { font-size: 12px; color: rgba(244,237,224,0.4); margin-top: 16px; line-height: 1.7; font-weight: 300; }
+    .footer-col-title { font-size: 11px; letter-spacing: 2px; color: rgba(244,237,224,0.4); margin-bottom: 16px; font-family: 'DM Sans', sans-serif; text-transform: uppercase; }
+    .footer-col-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-links a { font-size: 13px; color: rgba(244,237,224,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-col-links a:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid rgba(244,237,224,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 12px; color: rgba(244,237,224,0.3); }
+    .footer-cert-badges { display: flex; gap: 8px; }
+    .footer-badge { font-size: 10px; letter-spacing: 1px; padding: 4px 10px; border: 1px solid rgba(200,150,42,0.3); color: rgba(200,150,42,0.6); font-family: 'DM Sans', sans-serif; }
+
+    /* ─── BACK TO TOP ─── */
+    .back-top {
+      position: fixed; bottom: 32px; right: 32px; z-index: 100;
+      width: 44px; height: 44px; background: var(--brown);
+      border: none; cursor: pointer; color: var(--cream);
+      font-size: 18px; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: all 0.3s;
+    }
+    .back-top.visible { opacity: 1; pointer-events: auto; }
+    .back-top:hover { background: var(--rust); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 60px 40px; }
+      .strength-inner { grid-template-columns: 1fr; gap: 48px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .process-steps::before { display: none; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 24px; }
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-title { font-size: 38px; }
+      .section-h2 { font-size: 26px; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .custom-inner { grid-template-columns: 1fr; }
+      .contact-form { padding: 28px 24px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .about-strip .container { grid-template-columns: 1fr; gap: 36px; }
+      .process-note { grid-template-columns: 1fr; }
+      .hero-stat-grid { grid-template-columns: 1fr 1fr; }
+      .strength-right { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-zh">米哥</span>
+    <span class="nav-logo-en">mego</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">代工產品</a></li>
+    <li><a href="#strength">工廠實力</a></li>
+    <li><a href="#process">代工流程</a></li>
+    <li><a href="#custom">客製服務</a></li>
+    <li><a href="#contact">詢價合作</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">立即詢價</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" style="display:none; position:fixed; top:66px; left:0; right:0; background:var(--white); border-bottom:1px solid var(--border); z-index:150; padding:24px 24px;">
+  <ul style="list-style:none; display:flex; flex-direction:column; gap:18px;">
+    <li><a href="#products" onclick="closeMenu()" style="font-size:15px; color:var(--brown); text-decoration:none;">代工產品</a></li>
+    <li><a href="#strength" onclick="closeMenu()" style="font-size:15px; color:var(--brown); text-decoration:none;">工廠實力</a></li>
+    <li><a href="#process" onclick="closeMenu()" style="font-size:15px; color:var(--brown); text-decoration:none;">代工流程</a></li>
+    <li><a href="#custom" onclick="closeMenu()" style="font-size:15px; color:var(--brown); text-decoration:none;">客製服務</a></li>
+    <li><a href="#contact" onclick="closeMenu()" style="font-size:15px; color:var(--rust); text-decoration:none; font-weight:500;">立即詢價 →</a></li>
+  </ul>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Taiwan Rice Cracker OEM Manufacturer</div>
+    <h1 class="hero-title">台灣米果<br>代工專家</h1>
+    <div class="hero-title-en">Rice Cracker OEM</div>
+    <p class="hero-desc">
+      深耕台灣米食工藝，米哥有限公司提供<strong>米果、米香全品項代工服務</strong>。<br>
+      從配方研發、造型設計、量產品管到包裝出貨，<br>
+      一站式整合，穩定交期，成就您的品牌。
+    </p>
+    <div class="hero-tags">
+      <span class="tag tag-gold">HACCP 認證</span>
+      <span class="tag tag-rust">ISO 22000</span>
+      <span class="tag tag-gold">小量 & 大量接單</span>
+      <span class="tag tag-rust">客製口味研發</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">立即詢價合作</a>
+      <a href="#process" class="btn-outline">了解代工流程</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stat-grid">
+      <div class="hero-stat">
+        <div class="hero-stat-num">15<span>+</span></div>
+        <div class="hero-stat-label">年製造經驗</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">50<span>+</span></div>
+        <div class="hero-stat-label">合作品牌</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">12<span>種</span></div>
+        <div class="hero-stat-label">標準口味</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100<span>%</span></div>
+        <div class="hero-stat-label">台灣製造</div>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-item">HACCP</div>
+      <div class="hero-badge-item">ISO 22000</div>
+      <div class="hero-badge-item">台灣製造</div>
+      <div class="hero-badge-item">MIT</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MARQUEE ─── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">米果代工</span>
+    <span class="marquee-item">米香製造</span>
+    <span class="marquee-item">OEM Service</span>
+    <span class="marquee-item">客製口味</span>
+    <span class="marquee-item">HACCP Certified</span>
+    <span class="marquee-item">台灣製造</span>
+    <span class="marquee-item">小量起訂</span>
+    <span class="marquee-item">造型客製</span>
+    <span class="marquee-item">包裝設計</span>
+    <span class="marquee-item">品質保證</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">米果代工</span>
+    <span class="marquee-item">米香製造</span>
+    <span class="marquee-item">OEM Service</span>
+    <span class="marquee-item">客製口味</span>
+    <span class="marquee-item">HACCP Certified</span>
+    <span class="marquee-item">台灣製造</span>
+    <span class="marquee-item">小量起訂</span>
+    <span class="marquee-item">造型客製</span>
+    <span class="marquee-item">包裝設計</span>
+    <span class="marquee-item">品質保證</span>
+  </div>
+</div>
+
+<!-- ─── ABOUT STRIP ─── -->
+<section class="about-strip">
+  <div class="container">
+    <div>
+      <div class="section-label">About Us</div>
+      <h2 class="section-h2">米食工藝，<em>用心傳承</em></h2>
+      <p class="section-sub">我們以台灣在地米穀為原料，結合獨家發酵熟成技術，為合作夥伴打造高品質、高穩定性的米果產品。無論是農會伴手禮、企業送禮、電商自有品牌，皆有豐富合作經驗。</p>
+    </div>
+    <div class="about-features">
+      <div class="about-feat reveal">
+        <div class="about-feat-icon gold">🌾</div>
+        <div>
+          <div class="about-feat-title">嚴選台灣米穀原料</div>
+          <div class="about-feat-desc">與台灣在地農場長期合作，確保原料品質穩定，米的品種與產地可完整溯源。</div>
+        </div>
+      </div>
+      <div class="about-feat reveal">
+        <div class="about-feat-icon rust">🏭</div>
+        <div>
+          <div class="about-feat-title">HACCP 認證生產環境</div>
+          <div class="about-feat-desc">全廠通過 HACCP 食品安全管理認證，生產流程符合國際標準，品質有保障。</div>
+        </div>
+      </div>
+      <div class="about-feat reveal">
+        <div class="about-feat-icon brown">📦</div>
+        <div>
+          <div class="about-feat-title">一站式代工整合</div>
+          <div class="about-feat-desc">從口味研發、打樣確認、量產製造到包裝出貨，全程服務，降低您的溝通成本。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRODUCTS ─── -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="products-header reveal">
+      <div class="section-label">OEM Products</div>
+      <h2 class="section-h2">代工產品<em>品項</em></h2>
+      <p class="section-sub">提供多元品項，可依客戶需求調整造型、口味、尺寸與包裝規格，歡迎來樣打樣。</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="prod-card reveal">
+        <div class="prod-num">01</div>
+        <div class="prod-icon">🍘</div>
+        <div class="prod-name">傳統米香</div>
+        <div class="prod-en">Traditional Puffed Rice</div>
+        <div class="prod-desc">以傳統爆米香工藝製作，蓬鬆酥脆，適合伴手禮與零食市場，可客製甜、鹹口味。</div>
+        <div class="prod-specs">
+          <div class="prod-spec">造型：圓形、方形、條狀</div>
+          <div class="prod-spec">口味：原味、黑糖、鹹味</div>
+          <div class="prod-spec">最小起訂量：可詢問</div>
+        </div>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-num">02</div>
+        <div class="prod-icon">🌾</div>
+        <div class="prod-name">米果脆餅</div>
+        <div class="prod-en">Rice Crackers</div>
+        <div class="prod-desc">以碾壓烘烤工藝製成，口感輕薄酥脆，適合辦公室零食、量販通路等多元通路。</div>
+        <div class="prod-specs">
+          <div class="prod-spec">造型：片狀、多邊形、迷你</div>
+          <div class="prod-spec">口味：海苔、蔥蒜、芝麻等</div>
+          <div class="prod-spec">包裝：小包、家庭號</div>
+        </div>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-num">03</div>
+        <div class="prod-icon">🌀</div>
+        <div class="prod-name">發酵米棒</div>
+        <div class="prod-en">Fermented Rice Stick</div>
+        <div class="prod-desc">獨家發酵技術，口感層次豐富，不同於一般米棒，帶有淡淡發酵香氣，市場差異化明顯。</div>
+        <div class="prod-specs">
+          <div class="prod-spec">造型：棒狀、螺旋、異形</div>
+          <div class="prod-spec">風味：原味、起司、辣味</div>
+          <div class="prod-spec">特點：低油、低添加</div>
+        </div>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-num">04</div>
+        <div class="prod-icon">🎁</div>
+        <div class="prod-name">禮盒裝米香</div>
+        <div class="prod-en">Gift Box Rice Puffs</div>
+        <div class="prod-desc">專為企業送禮、節慶伴手禮設計，可搭配品牌包裝，適合農會、公司行號大量採購。</div>
+        <div class="prod-specs">
+          <div class="prod-spec">客製品牌 LOGO 包裝</div>
+          <div class="prod-spec">節慶主題設計</div>
+          <div class="prod-spec">支援企業採購報價</div>
+        </div>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-num">05</div>
+        <div class="prod-icon">🌈</div>
+        <div class="prod-name">彩色米果</div>
+        <div class="prod-en">Coloured Rice Snacks</div>
+        <div class="prod-desc">使用天然色素（黑米、紫薯、抹茶等）製成，外觀鮮豔吸睛，適合親子市場與電商品牌。</div>
+        <div class="prod-specs">
+          <div class="prod-spec">天然色素著色</div>
+          <div class="prod-spec">無人工色素</div>
+          <div class="prod-spec">適合兒童市場</div>
+        </div>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-num">06</div>
+        <div class="prod-icon">✨</div>
+        <div class="prod-name">客製化研發</div>
+        <div class="prod-en">Custom R&D</div>
+        <div class="prod-desc">提供全新口味與造型研發服務，您提供靈感或市場方向，我們完成打樣與量產，共創獨特品項。</div>
+        <div class="prod-specs">
+          <div class="prod-spec">口味配方研發</div>
+          <div class="prod-spec">造型模具開發</div>
+          <div class="prod-spec">樣品測試與確認</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── STRENGTH ─── -->
+<section class="strength" id="strength">
+  <div class="container">
+    <div class="strength-inner">
+      <div class="strength-left reveal">
+        <div class="section-label">Factory Strength</div>
+        <h2 class="section-h2">工廠<em>實力</em>與認證</h2>
+        <p class="section-sub">完整的食品安全管理體系、先進的生產設備與嚴格的品管制度，是我們每一批出貨的底氣。</p>
+        <div class="cert-list">
+          <div class="cert-item">
+            <div class="cert-badge">🏅</div>
+            <div>
+              <div class="cert-name">HACCP 食品安全管制系統</div>
+              <div class="cert-desc">全廠導入危害分析關鍵控制點管理，確保食品安全符合國際標準</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">📋</div>
+            <div>
+              <div class="cert-name">ISO 22000 食品安全管理</div>
+              <div class="cert-desc">建立完整的食品安全管理系統，從原料到出貨全程管控</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">🇹🇼</div>
+            <div>
+              <div class="cert-name">MIT 台灣製造認證</div>
+              <div class="cert-desc">百分之百台灣在地生產，支持在地農業，確保產品溯源</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">🔬</div>
+            <div>
+              <div class="cert-name">SGS 定期第三方檢驗</div>
+              <div class="cert-desc">定期委託 SGS 進行成品檢驗，重金屬、農藥殘留全面把關</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="strength-right reveal">
+        <div class="str-stat">
+          <div class="str-stat-num">15<span class="str-stat-unit">+</span></div>
+          <div class="str-stat-label">年生產經驗</div>
+          <div class="str-stat-sub">深耕台灣米食製造</div>
+        </div>
+        <div class="str-stat">
+          <div class="str-stat-num">500<span class="str-stat-unit">坪</span></div>
+          <div class="str-stat-label">廠房面積</div>
+          <div class="str-stat-sub">符合 GMP 生產環境</div>
+        </div>
+        <div class="str-stat">
+          <div class="str-stat-num">5<span class="str-stat-unit">條</span></div>
+          <div class="str-stat-label">生產線</div>
+          <div class="str-stat-sub">米香、米果各類設備</div>
+        </div>
+        <div class="str-stat">
+          <div class="str-stat-num">50<span class="str-stat-unit">+</span></div>
+          <div class="str-stat-label">合作品牌</div>
+          <div class="str-stat-sub">農會、企業、電商</div>
+        </div>
+        <div class="str-stat">
+          <div class="str-stat-num">12<span class="str-stat-unit">月</span></div>
+          <div class="str-stat-label">產品保存期限</div>
+          <div class="str-stat-sub">密封包裝技術</div>
+        </div>
+        <div class="str-stat">
+          <div class="str-stat-num">100<span class="str-stat-unit">%</span></div>
+          <div class="str-stat-label">台灣原料</div>
+          <div class="str-stat-sub">在地農場長期採購</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <div class="section-label">OEM Process</div>
+      <h2 class="section-h2">五步驟<em>代工流程</em></h2>
+      <p class="section-sub">清晰透明的合作流程，讓您從洽談到收貨每一步都安心掌握。</p>
+    </div>
+    <div class="process-steps">
+      <div class="step reveal">
+        <div class="step-circle"><span class="step-num">01</span></div>
+        <div class="step-name">需求洽談</div>
+        <div class="step-desc">填寫詢價表單或來電，說明產品類型、預計數量與上市時程，我們將在 2 個工作日內回覆。</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-circle"><span class="step-num">02</span></div>
+        <div class="step-name">樣品打樣</div>
+        <div class="step-desc">依據需求進行口味、造型、口感打樣，提供樣品供客戶試吃確認，可反覆修改至滿意。</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-circle"><span class="step-num">03</span></div>
+        <div class="step-name">規格確認</div>
+        <div class="step-desc">確認配方、規格、包裝設計、標示內容，雙方簽訂代工合約，保障配方機密與交期。</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-circle"><span class="step-num">04</span></div>
+        <div class="step-name">量產製造</div>
+        <div class="step-desc">依合約排定生產計畫，全程 HACCP 管控，提供出廠前品質報告，確保批批穩定。</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-circle"><span class="step-num">05</span></div>
+        <div class="step-name">出貨交件</div>
+        <div class="step-desc">依約定時程安排出貨，可宅配、工廠自取或安排物流，並提供完整出貨文件。</div>
+      </div>
+    </div>
+    <div class="process-note reveal">
+      <div class="pnote-item">
+        <div class="pnote-icon">⏱</div>
+        <div>
+          <div class="pnote-title">打樣期：7–14 個工作天</div>
+          <div class="pnote-desc">依口味複雜程度與修改次數調整，標準口味可縮短至 5 天。</div>
+        </div>
+      </div>
+      <div class="pnote-item">
+        <div class="pnote-icon">📦</div>
+        <div>
+          <div class="pnote-title">量產交期：3–6 週</div>
+          <div class="pnote-desc">自規格確認後起算，依數量與排程調整，大量訂單建議提前 2 個月規劃。</div>
+        </div>
+      </div>
+      <div class="pnote-item">
+        <div class="pnote-icon">🔒</div>
+        <div>
+          <div class="pnote-title">配方保密協議</div>
+          <div class="pnote-desc">所有客製配方簽訂 NDA，確保您的產品獨特性與商業機密安全。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CUSTOM ─── -->
+<section class="custom" id="custom">
+  <div class="container">
+    <div class="custom-inner">
+      <div>
+        <div class="section-label reveal">Customization</div>
+        <h2 class="section-h2 reveal">全方位<em>客製服務</em></h2>
+        <p class="section-sub reveal">不只是代工，我們提供從產品概念到上架的完整解決方案，協助您打造真正屬於自己品牌的米果產品。</p>
+        <div class="custom-options">
+          <div class="cust-opt reveal">
+            <div class="cust-opt-icon">🍓</div>
+            <div class="cust-opt-title">口味研發</div>
+            <div class="cust-opt-desc">提供市場趨勢分析，協助開發差異化口味，從傳統到創新皆可打樣。</div>
+          </div>
+          <div class="cust-opt reveal">
+            <div class="cust-opt-icon">🔶</div>
+            <div class="cust-opt-title">造型設計</div>
+            <div class="cust-opt-desc">提供多種標準模具，或開發客製模具，打造品牌專屬形狀。</div>
+          </div>
+          <div class="cust-opt reveal">
+            <div class="cust-opt-icon">📦</div>
+            <div class="cust-opt-title">包裝規劃</div>
+            <div class="cust-opt-desc">協助規劃包材規格、印刷需求、標示內容，符合食品標示法規。</div>
+          </div>
+          <div class="cust-opt reveal">
+            <div class="cust-opt-icon">📜</div>
+            <div class="cust-opt-title">認證申請</div>
+            <div class="cust-opt-desc">協助申請 MIT、有機、健康食品等標章，提升產品信任度。</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="custom-right-title reveal">最小起訂量 / MOQ 參考</div>
+        <table class="moq-table reveal">
+          <thead>
+            <tr>
+              <th>產品類型</th>
+              <th>最小起訂量</th>
+              <th>建議數量</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>傳統米香（標準口味）</td>
+              <td>100 kg</td>
+              <td>500 kg+</td>
+            </tr>
+            <tr>
+              <td>米果脆餅（標準口味）</td>
+              <td>150 kg</td>
+              <td>500 kg+</td>
+            </tr>
+            <tr>
+              <td>發酵米棒（標準口味）</td>
+              <td>200 kg</td>
+              <td>800 kg+</td>
+            </tr>
+            <tr>
+              <td>客製化新口味</td>
+              <td>300 kg</td>
+              <td>1,000 kg+</td>
+            </tr>
+            <tr>
+              <td>禮盒裝（組合包）</td>
+              <td>200 盒</td>
+              <td>500 盒+</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="moq-note reveal">※ 以上 MOQ 僅供參考，實際依產品規格、口味與包裝方式調整。歡迎來詢，我們會提供最適合您的方案。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-label reveal">Contact Us</div>
+        <h2 class="section-h2 reveal">開始<em>合作洽談</em></h2>
+        <p class="section-sub reveal">填寫需求表單，我們將在 2 個工作日內與您聯繫，提供初步報價與打樣建議。</p>
+        <div class="contact-details">
+          <div class="contact-detail reveal">
+            <div class="contact-detail-icon">📍</div>
+            <div>
+              <div class="contact-detail-label">工廠地址</div>
+              <div class="contact-detail-value">台灣（詳細地址請洽業務）</div>
+            </div>
+          </div>
+          <div class="contact-detail reveal">
+            <div class="contact-detail-icon">📞</div>
+            <div>
+              <div class="contact-detail-label">業務專線</div>
+              <div class="contact-detail-value">請填寫表單，我們主動聯繫</div>
+            </div>
+          </div>
+          <div class="contact-detail reveal">
+            <div class="contact-detail-icon">✉️</div>
+            <div>
+              <div class="contact-detail-label">電子信箱</div>
+              <div class="contact-detail-value">oem@mego.tw</div>
+            </div>
+          </div>
+          <div class="contact-detail reveal">
+            <div class="contact-detail-icon">⏰</div>
+            <div>
+              <div class="contact-detail-label">服務時間</div>
+              <div class="contact-detail-value">週一至週五  08:00 – 17:30</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal" id="contactFormWrap">
+        <div id="contactForm">
+          <div class="form-title">B2B 代工詢價表單</div>
+          <div class="form-sub">請填寫需求資訊，我們將盡快安排業務與您聯繫。</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">公司名稱 <span>*</span></label>
+              <input class="form-input" type="text" placeholder="例：xx食品有限公司" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">聯絡人姓名 <span>*</span></label>
+              <input class="form-input" type="text" placeholder="姓名" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">聯絡電話 <span>*</span></label>
+              <input class="form-input" type="tel" placeholder="0912-345-678" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">電子信箱 <span>*</span></label>
+              <input class="form-input" type="email" placeholder="email@company.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">有興趣的產品類型 <span>*</span></label>
+              <select class="form-select" required>
+                <option value="" disabled selected>請選擇</option>
+                <option>傳統米香</option>
+                <option>米果脆餅</option>
+                <option>發酵米棒</option>
+                <option>禮盒裝組合</option>
+                <option>客製化新口味開發</option>
+                <option>其他（請於備註說明）</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">預計採購數量</label>
+              <select class="form-select">
+                <option value="" disabled selected>請選擇</option>
+                <option>100–300 kg（小量試單）</option>
+                <option>300–1,000 kg</option>
+                <option>1,000–5,000 kg</option>
+                <option>5,000 kg 以上</option>
+                <option>尚未確定</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">目標通路 / 用途</label>
+              <select class="form-select">
+                <option value="" disabled selected>請選擇</option>
+                <option>企業送禮 / 伴手禮</option>
+                <option>農會 / 合作社</option>
+                <option>電商平台自有品牌</option>
+                <option>量販 / 超市通路</option>
+                <option>觀光工廠 / 體驗活動</option>
+                <option>其他</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">需求說明 / 備註</label>
+              <textarea class="form-textarea" placeholder="請說明您的需求，例如：希望客製芒果口味、需要無麩質認證、有特定包裝尺寸要求等..."></textarea>
+            </div>
+            <div class="form-checkbox-wrap">
+              <input class="form-checkbox" type="checkbox" id="privacyCheck" required>
+              <label class="form-checkbox-label" for="privacyCheck">
+                我同意 米哥有限公司收集以上資料，用於代工合作詢價與業務聯繫，資料將妥善保管不對外揭露。
+              </label>
+            </div>
+            <button class="form-submit" onclick="submitForm(event)">送出詢價需求 →</button>
+          </div>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">✅</div>
+          <div class="form-success-title">詢價需求已送出！</div>
+          <div class="form-success-sub">感謝您的聯繫，我們的業務團隊將在 2 個工作日內與您聯繫。<br>請留意來自 oem@mego.tw 的郵件。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-zh">米哥有限公司</div>
+        <div class="footer-brand-en">Migo · Rice Cracker OEM</div>
+        <div class="footer-tagline">台灣米食代工製造專家<br>以工藝為本，以誠信為基，<br>與每一個品牌共同成長。</div>
+      </div>
+      <div>
+        <div class="footer-col-title">服務項目</div>
+        <div class="footer-col-links">
+          <a href="#products">米果代工</a>
+          <a href="#products">米香製造</a>
+          <a href="#custom">口味研發</a>
+          <a href="#custom">包裝設計</a>
+          <a href="#custom">禮盒規劃</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">合作流程</div>
+        <div class="footer-col-links">
+          <a href="#process">需求洽談</a>
+          <a href="#process">樣品打樣</a>
+          <a href="#process">規格確認</a>
+          <a href="#process">量產製造</a>
+          <a href="#process">出貨交件</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">聯絡我們</div>
+        <div class="footer-col-links">
+          <a href="#contact">B2B 詢價表單</a>
+          <a href="mailto:oem@mego.tw">oem@mego.tw</a>
+          <a href="#">週一至週五 08–17:30</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 米哥有限公司 · 台灣製造 · 版權所有</div>
+      <div class="footer-cert-badges">
+        <div class="footer-badge">HACCP</div>
+        <div class="footer-badge">ISO 22000</div>
+        <div class="footer-badge">MIT</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── BACK TO TOP ─── -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  /* ─── Nav scroll ─── */
+  const nav = document.getElementById('mainNav');
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  /* ─── Mobile menu ─── */
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').style.display = 'none';
+  }
+
+  /* ─── Reveal on scroll ─── */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  /* ─── Form submit ─── */
+  function submitForm(e) {
+    e.preventDefault();
+    const check = document.getElementById('privacyCheck');
+    if (!check.checked) { alert('請勾選同意條款後送出。'); return; }
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('contactFormWrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+</body>
+</html>
