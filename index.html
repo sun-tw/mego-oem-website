@@ -1066,23 +1066,23 @@
           <div class="form-grid">
             <div class="form-group">
               <label class="form-label">公司名稱 <span>*</span></label>
-              <input class="form-input" type="text" placeholder="例：xx食品有限公司" required>
+              <input class="form-input" type="text" name="公司名稱" placeholder="例：xx食品有限公司" required>
             </div>
             <div class="form-group">
               <label class="form-label">聯絡人姓名 <span>*</span></label>
-              <input class="form-input" type="text" placeholder="姓名" required>
+              <input class="form-input" type="text" name="聯絡人姓名" placeholder="姓名" required>
             </div>
             <div class="form-group">
               <label class="form-label">聯絡電話 <span>*</span></label>
-              <input class="form-input" type="tel" placeholder="0912-345-678" required>
+              <input class="form-input" type="tel" name="聯絡電話" placeholder="0912-345-678" required>
             </div>
             <div class="form-group">
               <label class="form-label">電子信箱 <span>*</span></label>
-              <input class="form-input" type="email" placeholder="email@company.com" required>
+              <input class="form-input" type="email" name="電子信箱" placeholder="email@company.com" required>
             </div>
             <div class="form-group">
               <label class="form-label">有興趣的產品類型 <span>*</span></label>
-              <select class="form-select" required>
+              <select class="form-select" name="產品類型" required>
                 <option value="" disabled selected>請選擇</option>
                 <option>傳統米香</option>
                 <option>米果脆餅</option>
@@ -1094,7 +1094,7 @@
             </div>
             <div class="form-group">
               <label class="form-label">預計採購數量</label>
-              <select class="form-select">
+              <select class="form-select" name="採購數量">
                 <option value="" disabled selected>請選擇</option>
                 <option>100–300 kg（小量試單）</option>
                 <option>300–1,000 kg</option>
@@ -1105,7 +1105,7 @@
             </div>
             <div class="form-group full">
               <label class="form-label">目標通路 / 用途</label>
-              <select class="form-select">
+              <select class="form-select" name="目標通路">
                 <option value="" disabled selected>請選擇</option>
                 <option>企業送禮 / 伴手禮</option>
                 <option>農會 / 合作社</option>
@@ -1117,7 +1117,7 @@
             </div>
             <div class="form-group full">
               <label class="form-label">需求說明 / 備註</label>
-              <textarea class="form-textarea" placeholder="請說明您的需求，例如：希望客製芒果口味、需要無麩質認證、有特定包裝尺寸要求等..."></textarea>
+              <textarea class="form-textarea" name="需求說明" placeholder="請說明您的需求，例如：希望客製芒果口味、需要無麩質認證、有特定包裝尺寸要求等..."></textarea>
             </div>
             <div class="form-checkbox-wrap">
               <input class="form-checkbox" type="checkbox" id="privacyCheck" required>
@@ -1222,13 +1222,39 @@
   reveals.forEach(el => observer.observe(el));
 
   /* ─── Form submit ─── */
-  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
     const check = document.getElementById('privacyCheck');
     if (!check.checked) { alert('請勾選同意條款後送出。'); return; }
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    document.getElementById('contactFormWrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const btn = e.target;
+    btn.disabled = true;
+    btn.textContent = '傳送中…';
+
+    const form = document.getElementById('contactForm').querySelector('.form-grid');
+    const data = new FormData();
+    form.querySelectorAll('[name]').forEach(el => data.append(el.name, el.value));
+
+    try {
+      const res = await fetch('https://formspree.io/f/xnjlwyvk', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        document.getElementById('contactFormWrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        alert('送出失敗，請稍後再試或直接寄信至 oem@mego.tw');
+        btn.disabled = false;
+        btn.textContent = '送出詢價需求 →';
+      }
+    } catch {
+      alert('網路錯誤，請稍後再試或直接寄信至 oem@mego.tw');
+      btn.disabled = false;
+      btn.textContent = '送出詢價需求 →';
+    }
   }
 </script>
 </body>
